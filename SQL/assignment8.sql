@@ -1,4 +1,4 @@
---1.soru
+--1.test veritabanınızda employee isimli sütun bilgileri id(INTEGER), name VARCHAR(50), birthday DATE, email VARCHAR(100) olan bir tablo oluşturalım.
 create table employee(
 	id integer,
 	name varchar(50),
@@ -6,7 +6,7 @@ create table employee(
 	email varchar(100)
 );
 
---2.soru
+--2.Oluşturduğumuz employee tablosuna 'Mockaroo' servisini kullanarak 50 adet veri ekleyelim.
 insert into employee (id, name, birthday, email) values (1, 'Shawn', '2008-06-13', 'showse0@smh.com.au');
 insert into employee (id, name, birthday, email) values (2, 'Helen-elizabeth', '1997-09-11', 'hsomerton1@businessweek.com');
 insert into employee (id, name, birthday, email) values (3, 'Lavina', '2004-07-03', 'leustace2@independent.co.uk');
@@ -58,14 +58,14 @@ insert into employee (id, name, birthday, email) values (48, 'Deeyn', '1991-01-2
 insert into employee (id, name, birthday, email) values (49, 'Rolph', '2008-11-10', 'rbothie1c@so-net.ne.jp');
 insert into employee (id, name, birthday, email) values (50, 'John', '2014-06-11', 'jmusla1d@ihg.com');
 
---3.soru
+--3.Sütunların her birine göre diğer sütunları güncelleyecek 5 adet UPDATE işlemi yapalım.
 update employee set id=51,name='ilker',birthday='2000-01-12',email='blabla@gmail' where id=5 returning * ;
 update employee set id=52,name='deneme',birthday='2001-01-12',email='blaxbla@gmail' where name='Tiff' returning * ;
 update employee set id=53,name='deneme2',birthday='2002-01-12',email='blacbla@gmail' where birthday='2009-11-21' returning * ;
 update employee set id=54,name='deneme3',birthday='2003-01-12',email='blabvla@gmail' where email='rmetham19@flickr.com' returning * ;
 update employee set id=55,name='deneme4',birthday='2004-01-12',email='blablba@gmail' where id=25 returning * ;
 
---4.soru
+--4.Sütunların her birine göre ilgili satırı silecek 5 adet DELETE işlemi yapalım.
 delete from employee where id=51;
 delete from employee where name='deneme';
 delete from employee where birthday='2002-01-12';
