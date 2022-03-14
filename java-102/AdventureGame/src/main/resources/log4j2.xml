@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="warn" strict="true">
+  <Appenders>
+    <Console name="STDOUT" target="SYSTEM_OUT">
+      <!-- NormalLocation may be an issue when async logging is used! -->
+<!--      <PatternLayout pattern="[%date{ISO8601}] [%-5level] %c{1.}:%L %msg%n"/>-->
+      <PatternLayout pattern="%msg%n"/>
+    </Console>
+
+
+  </Appenders>
+
+
+  <Loggers>
+    <Root level="${env:AdventureGame:-DEBUG} ">
+      <AppenderRef ref="STDOUT"/>
+    </Root>
+<!--    <Logger name="org.apache" level="ERROR" additivity="false"/>-->
+  </Loggers>
+</Configuration>
