@@ -1,0 +1,2 @@
+git rm --cached -r 'java-102/target/*'
+git rm --cached -r 'java-102/.idea/*'
