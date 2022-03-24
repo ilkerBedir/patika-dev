@@ -19,15 +19,15 @@ public class MyThread extends Thread {
   public void run() {
     for (int i = 0; i < numbers.size(); i++) {
       Integer number = numbers.get(i);
-      if (number % 2 == 0) {
-        synchronized (MyThread.class) {
+      //Senkronize blok ekleme
+      synchronized (MyThread.class) {
+        if (number % 2 == 0) {
           evenNumbers.add(number);
-        }
-      } else {
-        synchronized (MyThread.class) {
+        } else {
           oddNumbers.add(number);
         }
       }
+
     }
   }
 }
