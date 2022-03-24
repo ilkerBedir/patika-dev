@@ -1,34 +1,35 @@
 package demo;
 
-import thread.FirstThread;
-import thread.FourthThread;
-import thread.SecondThread;
-import thread.ThirdThread;
+import thread.MyThread;
 
 import java.util.ArrayList;
 
 public class Main {
-  public static volatile ArrayList<Integer> oddNumbers=new ArrayList<>();
-  public static volatile ArrayList<Integer> evenNumbers=new ArrayList<>();
-  public static void main(String[] args) throws InterruptedException {
+  public static ArrayList<Integer> oddNumbers = new ArrayList<>();
+  public static ArrayList<Integer> evenNumbers = new ArrayList<>();
 
-    Thread firstThread = new FirstThread();
-    Thread secondThread=new SecondThread();
-    Thread thirdThread=new ThirdThread();
-    Thread fourthThread=new FourthThread();
-    firstThread.start();
-    secondThread.start();
-    thirdThread.start();
-    fourthThread.start();
-    firstThread.join();
-    secondThread.join();
-    thirdThread.join();
-    fourthThread.join();
-    System.out.println("TEK SAYILAR");
+  public static void main(String[] args) throws InterruptedException {
+    ArrayList<Thread> threads = new ArrayList<>();
+    threads.add(new MyThread(1, 2500));
+    threads.add(new MyThread(2501, 5000));
+    threads.add(new MyThread(5001, 7500));
+    threads.add(new MyThread(7501, 10000));
+    for (int i = 0; i < threads.size(); i++) {
+      threads.get(i).start();
+    }
+    for (int i = 0; i < threads.size(); i++) {
+      threads.get(i).join();
+    }
+
+    System.out.println("Tek Sayıların Adeti : " + oddNumbers.size());
+    System.out.println("Çift Sayıların Adeti : " + evenNumbers.size());
+
+    System.out.println("--------TEK SAYILAR-------");
     for (int i = 0; i < oddNumbers.size(); i++) {
       System.out.println(oddNumbers.get(i));
     }
-    System.out.println("ÇİFT SAYILAR");
+
+    System.out.println("--------ÇİFT SAYILAR-------");
     for (int i = 0; i < evenNumbers.size(); i++) {
       System.out.println(evenNumbers.get(i));
     }
